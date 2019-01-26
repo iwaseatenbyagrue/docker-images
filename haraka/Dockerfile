@@ -5,10 +5,11 @@ RUN yum install -y make gcc python node npm openssl gcc-c++
 RUN groupadd node
 RUN useradd -g node -d /var/lib/haraka -m -c "Haraka user"  haraka
 RUN npm install -g Haraka express
-RUN /usr/bin/haraka --install /usr/local/bin/
+RUN /usr/bin/haraka --install /var/lib/haraka
 #
 COPY entrypoint.sh /entrypoint.sh
 #
+COPY smtp.ini /var/lib/haraka/config/smtp.ini
 COPY plugins /var/lib/haraka/config/plugins
 #
 ENV HARAKA_FQDN ""
