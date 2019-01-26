@@ -1,0 +1,13 @@
+
+ControlSocket /run/tor/control
+ControlSocketsGroupWritable 1
+CookieAuthentication 1
+CookieAuthFile /run/tor/control.authcookie
+CookieAuthFileGroupReadable 1
+
+SOCKSPolicy accept 192.168.0.0/16
+SOCKSPolicy accept 172.16.0.0/12
+SOCKSPolicy accept 10.0.0.0/8
+
+SOCKSPort 0.0.0.0:9050
+FascistFirewall 1
