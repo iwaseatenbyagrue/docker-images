@@ -1,6 +1,6 @@
 FROM alpine
 
-ARG MATTERMOST_VERSION=5.8.0
+ARG MATTERMOST_VERSION=5.9.0
 
 RUN apk update && apk add --no-cache libc6-compat
 RUN addgroup mattermost
@@ -14,5 +14,6 @@ RUN chown -R mattermost:mattermost /var/lib/mattermost/logs /var/lib/mattermost/
 RUN rm -rf /usr/local/src/mattermost/
 USER mattermost
 WORKDIR /var/lib/mattermost
-ENV MM_TEAMSETTINGS_SITENAME = "Dockerised Mattermost"
+ENV MM_TEAMSETTINGS_SITENAME "My Mattermost"
+EXPOSE 8065
 ENTRYPOINT ["/var/lib/mattermost/bin/mattermost"]
